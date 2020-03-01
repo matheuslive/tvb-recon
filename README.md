@@ -27,8 +27,7 @@
   <a href="#Data-structure">Data structure</a> •
   <a href="#How-to-launch">How to launch</a> •
   <a href="#How-to-rerun">How to rerun</a> •
-  <a href="#Environment">Environment</a> •
-  <a href="#Contributors">Contributors</a>
+  <a href="#Environment">Environment</a> 
 </p>
 <p>
 <hr>
@@ -46,7 +45,7 @@ We are using the <a href="https://pegasus.isi.edu/">Pegasus WMS</a> in order to 
 </p>
 <p align="center">
 	Illustration of pipeline input and output based on imaging data of one subject.<br>
-	Image taken from <a fref="#Bibliography"> article [2],Bibliography</a>.
+	Image taken from <a href="#Bibliography"> article [2],Bibliography</a>.
 </p>
 
 
