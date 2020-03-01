@@ -17,8 +17,8 @@
   <a href="https://saythanks.io/">
       <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
   </a>
-  <a href="https://www.paypal.com/">
-    <img src="https://img.shields.io/badge/%24-Donate-%239D2E2B">
+  <a href="https://www.thevirtualbrain.org/tvb/zwei/brainsimulator-software">
+    <img src="https://img.shields.io/badge/Download-TVB%20v1.5.8-%23902B29">
   </a>
 </p>
 
@@ -37,7 +37,7 @@ It is used to preprocess the MR scans in order to get actual files that are comp
 
 The mandatory inputs are DWI and T1 scans. Optionally, CT scans can be given as input, if sensors preprocessing is needed.
 
-We are using the <a href="https://pegasus.isi.edu/">Pegasus WMS</a> in order to connect and automatize the pipeline steps. Pegasus is distributed under the Apache v2.0 license.
+We are using the <a href="https://pegasus.isi.edu/">Pegasus WMS</a> in order to connect and automatize the pipeline steps. Pegasus is distributed under the Apache v2.0 license, while our own code is GPL v3.
 </p>
 
 <p align="center">
@@ -362,13 +362,3 @@ The automatized workflow is based on:
 
 
 [![Build Status](https://img.shields.io/badge/Build-error-critical)](https://travis-ci.org/the-virtual-brain/tvb-recon) [![Coverage Status](https://img.shields.io/badge/Coverage-unknown-informational)](https://coveralls.io/github/the-virtual-brain/tvb-recon)
-
-
-### Contributors 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not modify this section -->
-<!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/674853?s=460&v=4" width="100px;"/><br /><sub><b>Lia Domide</b></sub>](https://github.com/liadomide)<br />        | [<img src="https://avatars2.githubusercontent.com/u/5189886?s=460&v=4" width="100px;"/><br /><sub><b>marmaduke woodman</b></sub>](https://github.com/maedoc/)<br /> | [<img src="https://avatars3.githubusercontent.com/u/3601158?s=400&v=4" width="100px;"/><br /><sub><b>Bogdan Neacsa</b></sub>](https://github.com/bogdanneacsa)<br />          | [<img src="https://avatars3.githubusercontent.com/u/1563810?s=400&v=4" width="100px;"/><br /><sub><b>Paula Sanz-Leon</b></sub>](https://github.com/pausz)<br /> | [<img src="https://avatars0.githubusercontent.com/u/2657768?s=400&v=4" width="100px;"/><br /><sub><b>Michael Burgstahler</b></sub>](https://github.com/twotribes)<br />    | [<img src="https://avatars3.githubusercontent.com/u/48951339?s=460&v=4" width="100px;"/><br /><sub><b>Saksham Raghuvanshi</b></sub>](https://github.com/sraghuvanshi)<br />                               | 
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | 
-
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
