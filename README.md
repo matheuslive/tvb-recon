@@ -14,8 +14,8 @@
   <a href="https://neurostars.org/">
 	  <img src="https://img.shields.io/badge/Chat-on%20Neurostars-%23673B90">
 </a>
-  <a href="https://saythanks.io/">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
+  <a href="https://req.thevirtualbrain.org/">
+      <img src="https://img.shields.io/badge/Install-Jira-%23624426">
   </a>
   <a href="https://www.thevirtualbrain.org/tvb/zwei/brainsimulator-software">
     <img src="https://img.shields.io/badge/Download-TVB%20v1.5.8-%23902B29">
@@ -42,7 +42,13 @@ We are using the <a href="https://pegasus.isi.edu/">Pegasus WMS</a> in order to 
 
 <p align="center">
   <img height="600" src="https://ars.els-cdn.com/content/image/1-s2.0-S1053811915002505-gr1.jpg">
+	
 </p>
+<p align="center">
+	Illustration of pipeline input and output based on imaging data of one subject.<br>
+	Image taken from <a fref="#Bibliography"> article [2],Bibliography</a>.
+</p>
+
 
 ## Folder structure
 
