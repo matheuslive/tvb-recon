@@ -11,8 +11,8 @@
     <img src="https://img.shields.io/badge/Pegasus%20WMS-4.9.3-%2349A13D"
          alt="Gitter">
   </a>
-  <a href="https://neurostars.org/">
-	  <img src="https://img.shields.io/badge/Chat-on%20Neurostars-%23673B90">
+  <a href="https://groups.google.com/forum/#!forum/tvb-users ">
+	  <img src="https://img.shields.io/badge/Chat-TVB%20forum-%236B3E90">
 </a>
   <a href="https://req.thevirtualbrain.org/">
       <img src="https://img.shields.io/badge/Install-Jira-%23624426">
