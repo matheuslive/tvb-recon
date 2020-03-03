@@ -9,34 +9,34 @@ We are using the [Pegasus WMS](https://pegasus.isi.edu/) in order to connect and
 
 ## Folder structure
 - data  
-	Here is where we keep some example data files. Some of them are intermediate files generated during pipeline run. There is also a minimal set of files that defines a TVB head. These files are currently used only for tests.  
+	Here is where we keep some example data files. Some of them are intermediate files generated during the pipeline run. There is also a minimal set of files that defines a TVB head. These files are currently used only for tests.  
 - docs  
     This folder holds some visual hints of the dependencies between the pipeline steps.  
     For example, there is an overview diagram representing the pipeline stages.   
 	These stages are defined by scripts that can be found inside the bin folder. 
 	These scripts are no longer maintained, nor used directly in the pipeline run. 
-	They belong under "docs" because are now used only for documentation purposes, or for some extreme partial debugging.   
-	On the other hand, there is also an example graph diagram which is displaying the more detailed steps. 
+	They belong under "docs" because they are now used only for documentation purposes, or for some extreme partial debugging.   
+	On the other hand, there is also an example graph diagram which is displaying more detailed steps. 
 	This kind of diagram is automatically generated at each pipeline run.  
 - pegasus  
 	All the configuration files necessary for the software run are kept here.  
-	At the first level there are the entry points which are explained bellow in the ***Entry Point*** section.  
+	At the first level, there are the entry points which are explained below in the ***Entry Point*** section.  
 	Inside the *config* folder, there is a folder called *scripts*. This holds bash files with calls to pipeline commands that need some specific environment configuration. These bash files should not be changed, neither their names, because they are mapped inside the workflow.  
-	The *config* folder also contains the configuration files which are patient specific. These are the only files that will change for each run and/or patient. The possible configurations are explained in **How to launch** section.
+	The *config* folder also contains the configuration files which are patient-specific. These are the only files that will change for each run and/or patient. The possible configurations are explained in **How to launch** section.
 - provision  
 	Inside this folder, you can find more details about the project dependencies.
 - tvb  
 	Actual python implementation is kept here.  
 	Package *dax* is using the Pegasus API to define a pipeline workflow and generate the jobs graph.  
-	Inside *algo* package we have all the computations, services and algorithms used during the pipeline steps. Here we also have the *reconutils.py* which defines an API for calls made from the *config/scripts* bash files.  
+	Inside *algo* package, we have all the computations, services and algorithms used during the pipeline steps. Here we also have the *reconutils.py* which defines an API for calls made from the *config/scripts* bash files.  
 	The model classes can be found inside *model* package.  
 	Package *io* provides read/write functionalities from/to a variety of file formats.  
 	We also have a set of tests for this module and they are kept inside the *tests* package.
 
 ## Data structure
-For an automated pipeline run, the patient data is divided in three categories:
+For an automated pipeline run, the patient data is divided into three categories:
 - raw data  
-    Usually scans, that are used as input files for the pipeline (e.g. T1, DWI, CT).
+    Usually, scans, that are used as input files for the pipeline (e.g. T1, DWI, CT).
 - configurations  
     This is a folder with configuration files. Each configuration file is described in the **How to launch** section.  
     This folder is patient specific. All the files should be filled in by the user or generated automatically with the **run_sequential.py** described also in **How to launch** section.
@@ -70,9 +70,9 @@ Also, it would be good to have tvb-recon code locally, in case some changes are 
 In order to use tvb-recon within the proposed docker image, you will need some details about its configurations and steps to follow for specifying your input data and start a workflow.
 We recommend new users to start with the ***default configurations*** and ***adjust their data structure*** as required. After a first workflow run has finished successfully, the configurations and data structure can be chosen by the user.
 
-First of all, we process mostly T1 and DWI data. There is an option to process also CT scans. But, we would advice you to start only with T1 and DWI, for now.
-In order to access the T1 and DWI input, tvb-recon pipeline expects, by default, a certain folder structure and file naming. These can be changed later as you wish, but keep the default configurations for a first test.
-This means, you should ***adjust your input*** data folder to the following structure (also rename your files as below):
+First of all, we process mostly T1 and DWI data. There is an option to process also CT scans. But, we would advise you to start only with T1 and DWI, for now.
+In order to access the T1 and DWI input, tvb-recon pipeline expects, by default, a certain folder structure, and file naming. These can be changed later as you wish, but keep the default configurations for a first test.
+This means you should ***adjust your input*** data folder to the following structure (also rename your files as below):
 
 - TVB_patients 
     - TVB1 
@@ -93,7 +93,7 @@ This means, you should ***adjust your input*** data folder to the following stru
 (TVB1, TVB2, etc, being the ID of the patients. If your DWI data is not made of: dwi.nii + dwi.bvec + dwi.bval, let us know and we will tell you how to specify it differently.)
 
 Once you have this folder structure for your data, you can run the tvb-recon docker image with the following command:  
-***docker run -it -v your_path_to_TVB_patients/TVB_patients/:/home/submitter/data -v your_path_to_tvb_recon/tvb-recon/:/opt/tvb-recon popaula937/tvb-recon:master-pr50 /bin/bash***  
+***docker run -it -v your_path_to_TVB_patients/TVB_patients/:/home/submitter/data -v your_path_to_tvb_recon/tvb-recon/:/opt/tvb-recon thevirtualbrain/tvb-recon /bin/bash***  
 (here you need to replace *your_path_to_TVB_patients* and *your_path_to_tvb_recon* with the paths of your local machine)
 
 Now, you will be able to use bash commands inside the tvb-recon container. And here, you need to do the next steps:
@@ -128,10 +128,10 @@ In order to check the status of your current workflow:
 - You can open a new terminal on the tvb-recon docker container with: *docker exec -i -t container_id /bin/bash*
 - Run this command: *pegasus-status -l /home/submitter/pegasus/submit/submitter/pegasus/TVB-PIPELINE/run0001*
 
-After you manage to test a first default workflow, we can speak about adjusting the configurations instead of adjusting data structure.
+After you manage to test a first default workflow, we can speak about adjusting the configurations instead of adjusting the data structure.
 
 ### Entry point:
-There are 2 available entry points for the pipeline. They are both under *pegasus* folder. In order to use these entry points, there are, in both cases, some configurations to be defined first. These configurations are kept as a folder specific to each patient and are explained in the next section.
+There are 2 available entry points for the pipeline. They are both under the *pegasus* folder. In order to use these entry points, there are, in both cases, some configurations to be defined first. These configurations are kept as a folder specific to each patient and are explained in the next section.
 
 The pipeline can be started using one of the following entry points:
 - **main_pegasus.sh**  
@@ -142,12 +142,12 @@ The pipeline can be started using one of the following entry points:
     - *path_to_configurations_folder* represents the path to the patient configuration files (e.g. data_folder/configurations) 
     - *path_to_dax_folder* represents the folder where the dax will be generated (e.g. data_folder/configurations/dax)
     
-    This entry point has the disadvantage that the user should manually fill in all the configuration files under *configurations* folder.
+    This entry point has the disadvantage that the user should manually fill in all the configuration files under the *configurations* folder.
 
 - **run_sequential.py**   
     This is a little more complex. It is used to start pipeline runs for a list of patients with similar configurations. As the name is suggesting, the runs will be started sequentially.  
     Command to launch the pipeline with this script: ***python run_sequentially.py***  
-    This script does not need arguments, but it needs the user to edit the necessary configurations inside file *run_sequential.py*. The configurations to edit are described bellow:
+    This script does not need arguments, but it needs the user to edit the necessary configurations inside file *run_sequential.py*. The configurations to edit are described below:
     - **PATH_TO_INPUT_SUBJ_FOLDERS**: path to the folder where you keep your patient raw data (e.g. data_folder/raw_data)
     - **PATH_TO_SUBJ_CONFIG_FOLDERS**: path to the folder where you keep your patient configurations (e.g. data_folder/configurations)
     - **PATH_TO_OUTPUT_SUBJ_FOLDER**: path to the folder where you want your outputs to be saved (e.g. data_folder/outputs)
@@ -158,13 +158,13 @@ The pipeline can be started using one of the following entry points:
     This entry point can be also used to start a single patient run in order for the user to avoid the need to manually fill in all the configuration files. This can be achieved by specifying a single suffix in the **SUBJECTS_TO_BE_PROCESSED** list (e.g. SUBJECTS_TO_BE_PROCESSED=[1]).
     
 ### Configurations
-All the configuration files are under *pegasus/config* at the top level. There are configurations specific to the patient, to the machine where the workflow is running or to the actual run. Some details about each file, are given bellow:
+All the configuration files are under *pegasus/config* at the top level. There are configurations specific to the patient, to the machine where the workflow is running or to the actual run. Some details about each file, are given below:
 - environment_config.sh  
-    These are the machine specific configurations. The configurations are mostly paths of the software and other variables that are needed for the pipeline environment setup.
+    These are the machine-specific configurations. The configurations are mostly paths of the software and other variables that are needed for the pipeline environment setup.
 - patient_flow.properties  
-    These are the patient specific configurations. 
+    These are the patient-specific configurations. 
 - pegasus.properties  
-    This is a pegasus specific configuration file. It just defined the paths to sites.xml, rc.txt, tc.txt and rc_out.txt.
+    This is a pegasus specific configuration file. It just defined the paths to sites.xml, rc.txt, tc.txt, and rc_out.txt.
 - rc.txt  
     Inside this file, the inputs should be defined in a key-value format, where value is the path to the input file.  
     During the pipeline run, the rc.txt will be filled in with all the generated files and their paths. This mapping is important to keep especially in case of a partial rerun.
@@ -173,14 +173,14 @@ All the configuration files are under *pegasus/config* at the top level. There a
 - sites.xml  
     This should not change since the configurable variables will be taken from the environment.
 - tc.xml  
-    This should not be change since it contains the commands mapping.
+    This should not be changed since it contains the commands mapping.
 
 
 ## How to rerun
 There are cases when the user is not satisfied with the obtained results. 
 Maybe the volume overlapping is not correct. Maybe more tracts or longer tracts are needed. Maybe the user has T2 scans and wants to add them.   
-These are all cases that imply the need to rerun the pipeline. But in the best case scenario, the user does not need to rerun the whole pipeline again, but rerun only the wanted steps.  
-With Pegasus the pipeline can be rerun partially. This means that it will rerun only the steps for which the corresponding outputs are missing from the **rc.txt**
+These are all cases that imply the need to rerun the pipeline. But in the best-case scenario, the user does not need to rerun the whole pipeline again but rerun only the wanted steps.  
+With Pegasus, the pipeline can be rerun partially. This means that it will rerun only the steps for which the corresponding outputs are missing from the **rc.txt**
 
 ### Rerun with different parameters
 This is possible with pegasus, but it is not automatized. It needs user input and attention.
@@ -235,7 +235,7 @@ The automatized workflow is based on:
 	This is the workflow engine we have used for automatizing the pipeline steps.  
 	Download tarball for MacOSX from here: https://pegasus.isi.edu/downloads/?filename=4.8.1%2Fpegasus-binary-4.8.1-x86_64_macos_10.tar.gz
 	
-	Prepare environment:
+	Prepare the environment:
 	- tar xzf ../pegasus-binary-4.8.1-x86_64_macos_10.tar.gz
 	- export PATH=../pegasus-4.8.1/bin/:$PATH
 	- check it works by running: pegasus-status
