@@ -1,12 +1,14 @@
 # http://conda.pydata.org/docs/travis.html
 language: python
-os:
-  - linux
-install:
-  - bash provision/05-ssl-dev.sh
-  - PREFIX=$(pwd)/env bash provision/70-python.sh
-  - PATH=$(pwd)/env/bin:$PATH pip3 install coveralls
+
+services:
+  - docker
+
+before_install:
+  - cd docker && docker build -t thevirtualbrain/tvb-recon:tests -f Dockerfile-tests .
+
 script:
-  - PATH=$(pwd)/env/bin:$PATH COV=yes bash run-tests.sh
-after_success:
+  - docker run --name tvb-recon thevirtualbrain/tvb-recon:tests /bin/bash -c "source activate tvb-recon-tests && bash run-tests.sh"
+
+after_script:
   - coveralls

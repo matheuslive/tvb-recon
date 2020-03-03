@@ -250,4 +250,4 @@ The automatized workflow is based on:
 [3] Andre Santos Ribeiro, Luis Miguel Lacerda, Hugo Alexandre Ferreira, Multimodal Imaging Brain Connectivity Analysis (MIBCA) toolbox, 2015 Jul 14. [Available here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4511822/)
 
 
-[![Build Status](https://travis-ci.org/the-virtual-brain/tvb-recon.svg?branch=master)](https://travis-ci.org/the-virtual-brain/tvb-recon) [![Coverage Status](https://coveralls.io/repos/github/the-virtual-brain/tvb-recon/badge.svg)](https://coveralls.io/github/the-virtual-brain/tvb-recon)
+[![Build Status](https://travis-ci.org/the-virtual-brain/tvb-recon.svg)](https://travis-ci.org/the-virtual-brain/tvb-recon) [![Coverage Status](https://coveralls.io/repos/github/the-virtual-brain/tvb-recon/badge.svg)](https://coveralls.io/github/the-virtual-brain/tvb-recon)

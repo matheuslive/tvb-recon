@@ -3,7 +3,6 @@
 import os
 
 import pytest
-from nibabel.py3k import FileNotFoundError
 
 from tvb.recon.io.factory import IOUtils
 from tvb.recon.tests.base import get_data_file, get_temporary_files_path, remove_temporary_test_files

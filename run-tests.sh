@@ -8,9 +8,5 @@ for ign in extern docs/bin/dev env; do ignores="--ignore=$ign $ignores"; done
 export SUBJECTS_DIR=`pwd`
 export SUBJECT='bnm'
 
-# maybe do coverage
-cov=""
-if [[ $COV == "yes" ]]; then cov="--cov=tvb"; fi
-
 # run 'em
-py.test --cov-config .coveragerc $cov $ignores
+pytest --cov-config .coveragerc --cov=tvb $ignores
