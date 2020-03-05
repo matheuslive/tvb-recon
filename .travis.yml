@@ -1,0 +1,14 @@
+# http://conda.pydata.org/docs/travis.html
+language: python
+
+services:
+  - docker
+
+before_install:
+  - cd docker && docker build -t thevirtualbrain/tvb-recon:tests -f Dockerfile-tests .
+
+script:
+  - docker run --name tvb-recon thevirtualbrain/tvb-recon:tests /bin/bash -c "source activate tvb-recon-tests && bash run-tests.sh"
+
+after_script:
+  - coveralls
