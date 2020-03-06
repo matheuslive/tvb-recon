@@ -6,6 +6,7 @@ services:
 
 before_install:
   - cd docker && docker build -t thevirtualbrain/tvb-recon:tests -f Dockerfile-tests .
+  - cd ..
 
 script:
   - docker run --name tvb-recon thevirtualbrain/tvb-recon:tests /bin/bash -c "source activate tvb-recon-tests && bash run-tests.sh"
