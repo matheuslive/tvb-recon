@@ -73,7 +73,7 @@ class ImageWriter(object):
 
         fig = pyplot.figure()
 
-        ax = Axes3D(fig, aspect='equal')
+        ax = Axes3D(fig)
 
         min = numpy.min([numpy.min(x), numpy.min(y), numpy.min(z)])
         max = numpy.max([numpy.max(x), numpy.max(y), numpy.max(z)])
