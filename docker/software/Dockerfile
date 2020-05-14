@@ -4,7 +4,7 @@ FROM debian:9
 RUN apt-get update && apt-get install -y wget git g++ python python-numpy libeigen3-dev zlib1g-dev libqt4-opengl-dev libgl1-mesa-dev libfftw3-dev libtiff5-dev dc
 RUN cd /opt && git clone https://github.com/MRtrix3/mrtrix3.git
 RUN cd /opt/mrtrix3 && export EIGEN_CFLAGS="-isystem /usr/include/eigen3" && ./configure
-RUN cd /opt/mrtrix3 && NUMBER_OF_PROCESSORS=1 ./build
+RUN cd /opt/mrtrix3 && NUMBER_OF_PROCESSORS=8 ./build
 
 
 #Freesurfer
