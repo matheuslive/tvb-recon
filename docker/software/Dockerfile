@@ -24,7 +24,7 @@ ENV PATH ${FSLDIR}/bin:${PATH}
 
 #Anaconda
 RUN apt-get update && apt-get install -y bzip2
-RUN wget --quiet --output-document=anaconda.sh "https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh" && sh anaconda.sh -b -p /opt/conda
+RUN wget --quiet --output-document=anaconda.sh "https://repo.continuum.io/archive/Anaconda2-5.3.1-Linux-x86_64.sh" && sh anaconda.sh -b -p /opt/conda
 ENV PATH /opt/conda/bin:${PATH}
 
 
