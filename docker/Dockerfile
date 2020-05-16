@@ -3,7 +3,7 @@ FROM tvb-recon-software
 #TVB-RECON
 RUN apt-get install -y python-pip
 RUN cd /opt && git clone https://github.com/the-virtual-brain/tvb-recon.git
-RUN conda install -y setuptools numpy scipy matplotlib pytest h5py scikit-learn Cython graphviz
+RUN conda install -y python=2.7 setuptools numpy scipy matplotlib pytest h5py scikit-learn Cython graphviz
 RUN pip install trimesh anytree gdist
 RUN cd /opt/tvb-recon && python setup.py develop
 RUN conda create -n tvb_recon_python3_env python=3.6 anaconda
