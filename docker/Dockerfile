@@ -6,6 +6,7 @@ RUN cd /opt && git clone https://github.com/the-virtual-brain/tvb-recon.git
 RUN conda install -y python=2.7 setuptools numpy scipy matplotlib pytest h5py scikit-learn Cython graphviz
 RUN pip install trimesh anytree gdist
 RUN cd /opt/tvb-recon && python setup.py develop
+RUN chmod 777 -R /opt/tvb-recon
 RUN conda create -n tvb_recon_python3_env python=3.6 anaconda
 
 WORKDIR /opt/tvb-recon
