@@ -12,6 +12,7 @@ RUN conda create -n tvb_recon_python3_env python=3.6 anaconda
 WORKDIR /opt/tvb-recon
 RUN [ "/bin/bash", "-c", "source /opt/conda/bin/activate tvb_recon_python3_env && python setup.py develop && pip install nibabel" ]
 
+EXPOSE 5000
 USER ${SUBMIT_USER}
 COPY start_condor_and_run.sh /opt/
 #CMD ["sh", "/opt/start_condor_and_run.sh"]
