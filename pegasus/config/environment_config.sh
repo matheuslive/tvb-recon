@@ -23,3 +23,5 @@ export PYTHON3_ENVIRONMENT=tvb_recon_python3_env
 export SH_CUSTOM_FILES=/opt/tvb-recon/pegasus/config/scripts
 
 export MNE_ROOT=/opt/MNE-2.7.4-3378-MacOSX-x86_64/bin
+
+export OMP_NUM_THREADS=${openmp.threads}
