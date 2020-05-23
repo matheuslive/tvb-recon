@@ -10,7 +10,6 @@ RUN cd /opt/tvb-recon && python setup.py develop
 RUN conda create -n tvb_recon_python3_env python=3.6 anaconda
 COPY --chown=${SUBMIT_USER} pegasus /opt/tvb-recon/pegasus
 RUN chmod 777 -R /opt/tvb-recon
-RUN conda create -n tvb_recon_python3_env python=3.6 anaconda
 
 WORKDIR /opt/tvb-recon
 RUN [ "/bin/bash", "-c", "source /opt/conda/bin/activate tvb_recon_python3_env && python setup.py develop && pip install nibabel" ]
