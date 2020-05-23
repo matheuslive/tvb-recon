@@ -7,6 +7,8 @@ RUN cd /opt && git clone https://github.com/matheuslive/tvb-recon.git
 RUN conda install -y python=2.7 setuptools numpy scipy matplotlib pytest h5py scikit-learn Cython graphviz
 RUN pip install trimesh anytree gdist
 RUN cd /opt/tvb-recon && python setup.py develop
+RUN conda create -n tvb_recon_python3_env python=3.6 anaconda
+COPY --chown=${SUBMIT_USER} pegasus /opt/tvb-recon/pegasus
 RUN chmod 777 -R /opt/tvb-recon
 RUN conda create -n tvb_recon_python3_env python=3.6 anaconda
 
