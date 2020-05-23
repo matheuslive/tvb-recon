@@ -1,7 +1,8 @@
 FROM tvb-recon-software
 
 #TVB-RECON
-RUN apt-get install -y python-pip
+#RUN apt-get install -y python-pip
+ADD https://api.github.com/repos/matheuslive/tvb-recon/git/refs/heads/master version.json
 RUN cd /opt && git clone https://github.com/matheuslive/tvb-recon.git
 RUN conda install -y python=2.7 setuptools numpy scipy matplotlib pytest h5py scikit-learn Cython graphviz
 RUN pip install trimesh anytree gdist
