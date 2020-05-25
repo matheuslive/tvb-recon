@@ -16,10 +16,10 @@ def create_tvb_dataset(atlas_suffix: AtlasSuffix, mri_direc: os.PathLike,
                        tracts_file: os.PathLike,
                        out_dir: os.PathLike,
                        bring_t1=False):
-    weights_matrix = numpy.loadtxt(str(weights_file), dtype='i', delimiter=' ')
+    weights_matrix = numpy.loadtxt(str(weights_file), dtype='i', delimiter=',')
     weights_matrix += weights_matrix.T
 
-    tracts_matrix = numpy.loadtxt(str(tracts_file), dtype='f', delimiter=' ')
+    tracts_matrix = numpy.loadtxt(str(tracts_file), dtype='f', delimiter=',')
     tracts_matrix += tracts_matrix.T
 
     is_cortical_rm = numpy.genfromtxt(
