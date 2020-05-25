@@ -2,7 +2,6 @@
 
 source ${ANACONDA_ACTIVATE} ${PYTHON3_ENVIRONMENT}
 
-export HOME
 export FREESURFER_HOME
 export SUBJECTS_DIR
 source ${FREESURFER_HOME}/FreeSurferEnv.sh
