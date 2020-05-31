@@ -150,7 +150,7 @@ def get_specified_submit_folder(current_dir):
 if __name__ == "__main__":
     arg_subjects = sys.argv[1].split(" ")
     SUBJECTS_TO_BE_PROCESSED = [int(val) for val in arg_subjects]
-    print "Starting to process the following subjects: %s", SUBJECTS_TO_BE_PROCESSED
+    print "Starting to process the following subjects: %s" % SUBJECTS_TO_BE_PROCESSED
 
     if not os.path.exists(PATH_TO_SUBJ_CONFIG_FOLDERS):
         os.mkdir(PATH_TO_SUBJ_CONFIG_FOLDERS)
@@ -173,7 +173,7 @@ if __name__ == "__main__":
 
             existent_job_ids = get_currently_running_job_ids()
 
-            print "Starting pegasus run for subject: " + current_subject + "with atlas: " + atlas
+            print "Starting pegasus run for subject: " + current_subject + " with atlas: " + atlas
             current_dax_dir = os.path.join(current_dir, "dax")
             p = subprocess.call(["sh", "main_pegasus.sh", current_dir, current_dax_dir])
 
