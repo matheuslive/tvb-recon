@@ -14,4 +14,4 @@ RUN [ "/bin/bash", "-c", "source /opt/conda/bin/activate tvb_recon_python3_env &
 
 USER ${SUBMIT_USER}
 COPY start_condor_and_run.sh /opt/
-#CMD ["sh", "/opt/start_condor_and_run.sh"]
+CMD ["sh", "/opt/start_condor_and_run.sh", "1"]
