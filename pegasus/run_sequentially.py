@@ -5,7 +5,6 @@ import subprocess
 import time
 import shutil
 import sys
-import psutil
 from enum import Enum
 from string import Template
 
@@ -21,7 +20,7 @@ ATLASES = ["default", "a2009s"]
 
 OS = "LINUX"
 
-THREADS = psutil.cpu_count()
+THREADS = print(os.getenv('CPU', 4))
 
 PATH_TO_DEFAULT_PEGASUS_CONFIGURATION = os.path.join(os.getcwd(), "config")
 
