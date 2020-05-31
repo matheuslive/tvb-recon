@@ -20,7 +20,7 @@ ATLASES = ["default", "a2009s"]
 
 OS = "LINUX"
 
-THREADS = print(os.getenv('CPU', 4))
+THREADS = os.getenv('CPU', 4)
 
 PATH_TO_DEFAULT_PEGASUS_CONFIGURATION = os.path.join(os.getcwd(), "config")
 
