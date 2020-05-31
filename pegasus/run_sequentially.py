@@ -5,6 +5,7 @@ import subprocess
 import time
 import shutil
 import sys
+import psutil
 from enum import Enum
 from string import Template
 
@@ -19,6 +20,8 @@ SUBJECTS_TO_BE_PROCESSED = [24]
 ATLASES = ["default", "a2009s"]
 
 OS = "LINUX"
+
+THREADS = psutil.cpu_count()
 
 PATH_TO_DEFAULT_PEGASUS_CONFIGURATION = os.path.join(os.getcwd(), "config")
 
@@ -49,7 +52,7 @@ def create_config_files_for_subj(current_subject, current_atlas):
     default_patient_props_path = os.path.join(PATH_TO_DEFAULT_PEGASUS_CONFIGURATION, configs.PATIENT_PROPS.value)
     with open(default_patient_props_path) as default_patient_props_file:
         template = Template(default_patient_props_file.read())
-        patient_props = template.substitute(subject=current_subject, atlas=current_atlas, os=OS)
+        patient_props = template.substitute(subject=current_subject, atlas=current_atlas, threads=THREADS, os=OS)
         subj_patient_props = os.path.join(current_dir, configs.PATIENT_PROPS.value)
         with open(subj_patient_props, "w+") as subj_patient_props_file:
             subj_patient_props_file.write(patient_props)
