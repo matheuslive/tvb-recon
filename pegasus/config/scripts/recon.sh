@@ -4,7 +4,6 @@ export HOME
 export FREESURFER_HOME
 export SUBJECTS_DIR
 source ${FREESURFER_HOME}/FreeSurferEnv.sh
-export OMP_NUM_THREADS
 
 f=$PWD
 
