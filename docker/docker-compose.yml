@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  tvb-recon:
+    image: registry.gitlab.com/matheuslive/jupyter:latest
+    build:
+    volumes:
+      - ./TVB1:/home/submitter/data/TVB1
+      - submitter:/home/submitter
+    environment:
+      CPU: 8
+  web:
+    image: gcr.io/deneb-gcp/tvb-recon
+    volumes:
+      - submitter:/home/submitter
+    ports:
+      - "5000"
+    CMD: pegasus-service -H 0.0.0.0 -p 5000
+      
+volumes:
+  submitter:
